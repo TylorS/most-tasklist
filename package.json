@@ -1,0 +1,64 @@
+{
+  "name": "most-tasklist",
+  "version": "0.0.0",
+  "description": "Beautiful Task List for most.js",
+  "main": "lib/index.js",
+  "jsnext:main": "src/index.js",
+  "module": "src/index.js",
+  "scripts": {
+    "clean": "rimraf lib node_modules",
+    "build": "buba src -o lib",
+    "test": "northbrook eslint && mocha -r buba/register",
+    "coverage": "istanbul cover --report html --report lcov ./node_modules/.bin/_mocha -- --require buba/register",
+    "commit": "northbrook commit",
+    "release": "northbrook release"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TylorS/most-tasklist.git"
+  },
+  "keywords": [
+    "tasklist",
+    "task",
+    "list",
+    "most",
+    "cli",
+    "command",
+    "line",
+    "app"
+  ],
+  "author": "Tylor Steinberger <tlsteinberger167@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TylorS/most-tasklist/issues"
+  },
+  "homepage": "https://github.com/TylorS/most-tasklist#readme",
+  "config": {
+    "ghooks": {
+      "commit-msg": "node ./node_modules/.bin/validate-commit-msg"
+    },
+    "validate-commit-msg": {
+      "types": "@northbrook/commit-types"
+    }
+  },
+  "devDependencies": {
+    "@most/prelude": "^1.4.1",
+    "@northbrook/eslint": "^1.2.1",
+    "babel-eslint": "^6.1.2",
+    "babel-preset-power-assert": "^1.0.0",
+    "buba": "^4.0.1",
+    "ghooks": "^1.3.2",
+    "istanbul": "^1.1.0-alpha.1",
+    "mocha": "^3.0.2",
+    "northbrook": "^3.2.1",
+    "power-assert": "^1.4.1",
+    "sinon": "^1.17.6",
+    "validate-commit-msg": "^2.8.0"
+  },
+  "dependencies": {
+    "@most/create": "^1.1.3",
+    "most": "^1.0.3",
+    "most-last": "^1.0.0",
+    "most-subject": "^4.1.3"
+  }
+}
